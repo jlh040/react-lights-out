@@ -87,18 +87,18 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   }
 
   // if the game is won, just show a winning msg & render nothing else
-  if (hasWon()) alert('You won!')
+  // if (hasWon()) alert('You won!')
 
   // make table board
   return (
     <table>
       {
-        board.map(row => {
+        board.map((row, idx1) => {
           return <tr>
             {
-              row.map(col => <Cell 
-                              isLit={board[row][col]}
-                              flipCellsAroundMe={() => flipCellsAround(`${row}-${col}`)} 
+              row.map((col, idx2) => <Cell 
+                              isLit={board[idx1][idx2]}
+                              flipCellsAroundMe={() => flipCellsAround(`${idx1}-${idx2}`)} 
                               />
                       )
             }
