@@ -52,12 +52,10 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 
   /** check the state to see if a player has won */
   function hasWon() {
-    board.forEach(row => {
-      if (row.includes(true)) return false;
+    return board.every(row => {
+      return row.every(val => val === false);
     });
-
-    return true;
-  }
+  };
 
   function flipCellsAround(coord) {
     setBoard(oldBoard => {
@@ -87,7 +85,13 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   }
 
   // if the game is won, just show a winning msg & render nothing else
-  // if (hasWon()) alert('You won!')
+  if (hasWon()) {
+    return (
+      <div className="Board-winning-msg">
+        You won!
+      </div>
+    )
+  }
 
   // make table board
   return (
