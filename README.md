@@ -7,7 +7,7 @@ This is a small puzzle game created using [React](https://reactjs.org/). The gam
 ## Technicalities
 
 - To get this code onto your machine, run `git clone https://github.com/jlh040/react-lights-out.git`
-- Then, make sure you have Node.js installed, `cd` into the project directory, and run `npm install` to download all of the required packages.
+- Then, make sure you have [Node.js](https://nodejs.org/en/) installed, `cd` into the project directory, and run `npm install` to download all of the required packages.
 - Next, run `npm start` and the game should show up in your browser.
 
 
