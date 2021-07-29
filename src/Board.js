@@ -88,7 +88,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
   if (hasWon()) {
     return (
       <div className="Board-winning-msg">
-        You won!
+        <h1>You won!</h1>
       </div>
     )
   }
