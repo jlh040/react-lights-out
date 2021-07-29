@@ -101,7 +101,7 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
           return <tr>
             {
               row.map((col, idx2) => <Cell isLit={board[idx1][idx2]} 
-                                          flipCellsAroundMe={() => flipCellsAround(`${idx1}-${idx2}`)} />)
+                                           flipCellsAroundMe={() => flipCellsAround(`${idx1}-${idx2}`)} />)
             }
           </tr>
         })
