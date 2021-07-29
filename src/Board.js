@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import Cell from "./Cell";
 import "./Board.css";
+const _ = require('lodash');
 
 /** Game board of Lights out.
  *
@@ -49,8 +50,8 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
     return initialBoard;
   }
 
+  /** check the state to see if a player has won */
   function hasWon() {
-    let sum = 0;
     board.forEach(row => {
       if (row.includes(true)) return false;
     });
@@ -69,12 +70,19 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
           boardCopy[y][x] = !boardCopy[y][x];
         }
       };
+      
+      // make copy of current board in the state
+      const newBoard = _.cloneDeep(oldBoard);
 
-      // TODO: Make a (deep) copy of the oldBoard
+      // flip the cell and the cells around it
+      flipCell(y, x, newBoard);
+      flipCell(y + 1, x, newBoard);
+      flipCell(y, x + 1, newBoard);
+      flipCell(y - 1, x, newBoard);
+      flipCell(y, x - 1, newBoard);
 
-      // TODO: in the copy, flip this cell and the cells around it
-
-      // TODO: return the copy
+      // return the copy
+      return newBoard;
     });
   }
 
@@ -88,3 +96,4 @@ function Board({ nrows, ncols, chanceLightStartsOn }) {
 }
 
 export default Board;
+
